@@ -12,7 +12,7 @@ body {
 }
 
 .app {
-  max-width: 1100px;
+  max-width: 1220px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
@@ -23,7 +23,7 @@ header {
 }
 
 header h1 {
-  font-size: 2rem;
+  font-size: clamp(2.35rem, 4vw, 2.9rem);
   color: #38bdf8;
   margin-bottom: 0.5rem;
 }
@@ -44,7 +44,7 @@ header code {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
   align-items: start;
 }
 
@@ -65,8 +65,8 @@ header code {
 .stats-card,
 .log-card {
   background: #1e293b;
-  border-radius: 12px;
-  padding: 1.25rem;
+  border-radius: 14px;
+  padding: 1.5rem;
   border: 1px solid #334155;
 }
 
@@ -74,19 +74,19 @@ header code {
 .list-card h2,
 .stats-card h2,
 .log-card h2 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: #38bdf8;
   margin-bottom: 1rem;
 }
 
 .form-card input {
   width: 100%;
-  padding: 0.6rem 0.75rem;
+  padding: 0.75rem 0.9rem;
   border: 1px solid #475569;
   border-radius: 8px;
   background: #0f172a;
   color: #e2e8f0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-bottom: 0.75rem;
   outline: none;
   transition: border-color 0.2s;
@@ -98,13 +98,13 @@ header code {
 
 .form-card button {
   width: 100%;
-  padding: 0.6rem;
+  padding: 0.75rem;
   border: none;
   border-radius: 8px;
   background: #38bdf8;
   color: #0f172a;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -122,8 +122,9 @@ header code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0.6rem;
+  padding: 0.65rem 0.75rem;
   border-radius: 6px;
+  font-size: 1rem;
   transition: background 0.15s;
 }
 
@@ -150,13 +151,14 @@ header code {
 .empty {
   color: #64748b;
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .stat-row {
   display: flex;
   justify-content: space-between;
-  padding: 0.4rem 0;
+  padding: 0.55rem 0;
+  font-size: 1.05rem;
   border-bottom: 1px solid #334155;
 }
 
