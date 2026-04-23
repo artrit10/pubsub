@@ -10,14 +10,11 @@ export default function ActorList() {
       console.log('[SUBSCRIBE] ActorList received with topic', TOPICS.ACTOR_ADDED, data)
       setActors((prev) => {
         if (prev.some((a) => a.toLowerCase() === data.name.toLowerCase())) {
-          console.log('[SKIP] Duplicate actor ignored:', data.name)
           return prev
         }
         const updated = [...prev, data.name].sort()
-        setTimeout(() => {
           console.log('[PUBLISH] ActorList publishing with topic', TOPICS.ACTORS_UPDATED, updated)
           PubSub.publish(TOPICS.ACTORS_UPDATED, updated)
-        }, 0)
         return updated
       })
     })
@@ -29,10 +26,8 @@ export default function ActorList() {
     console.log('[PUBLISH] ActorList publishing with topic', TOPICS.ACTOR_DELETED, { name })
     setActors((prev) => {
       const updated = prev.filter((a) => a !== name)
-      setTimeout(() => {
-        console.log('[PUBLISH] ActorList publishing with topic', TOPICS.ACTORS_UPDATED, updated)
-        PubSub.publish(TOPICS.ACTORS_UPDATED, updated)
-      }, 0)
+      console.log('[PUBLISH] ActorList publishing with topic', TOPICS.ACTORS_UPDATED, updated)
+      PubSub.publish(TOPICS.ACTORS_UPDATED, updated)
       return updated
     })
     PubSub.publish(TOPICS.ACTOR_DELETED, { name })

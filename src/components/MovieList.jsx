@@ -15,10 +15,9 @@ export default function MovieList() {
         }
         const updated = [...prev, data.title].sort()
         // Notify other subscribers that the movie list changed
-        setTimeout(() => {
-          console.log('[PUBLISH] MovieList publishing with topic', TOPICS.MOVIES_UPDATED, updated)
-          PubSub.publish(TOPICS.MOVIES_UPDATED, updated)
-        }, 0)
+        console.log('[PUBLISH] MovieList publishing with topic', TOPICS.MOVIES_UPDATED, updated)
+        PubSub.publish(TOPICS.MOVIES_UPDATED, updated)
+     
         return updated
       })
     })
@@ -30,10 +29,8 @@ export default function MovieList() {
     console.log('[PUBLISH] MovieList publishing with topic', TOPICS.MOVIE_DELETED, { title })
     setMovies((prev) => {
       const updated = prev.filter((m) => m !== title)
-      setTimeout(() => {
-        console.log('[PUBLISH] MovieList publishing with topic', TOPICS.MOVIES_UPDATED, updated)
-        PubSub.publish(TOPICS.MOVIES_UPDATED, updated)
-      }, 0)
+      console.log('[PUBLISH] MovieList publishing with topic', TOPICS.MOVIES_UPDATED, updated)
+      PubSub.publish(TOPICS.MOVIES_UPDATED, updated)
       return updated
     })
     PubSub.publish(TOPICS.MOVIE_DELETED, { title })
