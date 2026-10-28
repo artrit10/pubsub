@@ -36,3 +36,10 @@ const token = PubSub.subscribe('topic.name', (msg, data) => { ... })
 // Unsubscribe (important for cleanup in useEffect!)
 PubSub.unsubscribe(token)
 ```
+
+## Dev Coach AI (`server/` and `web/`)
+
+- `server/`: Express API calling Claude. `cd server && npm install && cp .env.example .env` (set `ANTHROPIC_API_KEY`), then `npm run dev` (port 3001).
+- `web/`: Vite + React UI, proxies `/api` to the server. `cd web && npm install && npm run dev`.
+
+Only `server/` reads the API key; `.env` is git-ignored.
